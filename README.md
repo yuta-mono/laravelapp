@@ -1,2 +1,2 @@
 # laravelapp
-Laravelno
+Laravelのお勉強
