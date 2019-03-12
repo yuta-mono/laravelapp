@@ -22,28 +22,15 @@ function tag($tag, $txt) {
 
 class HelloController extends Controller
 {
-    public function index(Request $request, Response $response) {
-        global $head, $style, $body, $end;
-
-        $html =
-            $head . tag('title','Hello/Index') . $style . $body
-            . tag('h1','Index')
-            . tag('h3','Request') . tag('pre',"{$request}")
-            . tag('h3','Response') . tag('pre',"{$response}")
-            . tag('p','this is Index page')
-            . '<a href="/hello/other">go to other page</a>'
-            . $end;
-
-        $response->setContent($html);
-        return $response;
+    public function index(Request $request) {
+        $data = [
+            'msg'=>'これはコントローラから渡されたメッセージです。',
+            'id'=>$request->id
+        ];
+        return view('hello.index', $data);
     }
 
     public function other() {
-        global $head, $style, $body, $end;
-
-        $html = $head . tag('title','Hello/Index') . $style . $body
-        . tag('h1','Other') . tag('p','this is Other page')
-        . $end;
-        return $html;
+        return view('hello.other');
     }
 }
