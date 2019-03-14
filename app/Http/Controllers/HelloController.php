@@ -22,15 +22,18 @@ function tag($tag, $txt) {
 
 class HelloController extends Controller
 {
-    public function index(Request $request) {
+    public function index() {
         $data = [
-            'msg'=>'これはコントローラから渡されたメッセージです。',
-            'id'=>$request->id
+            'msg' => '名前を入力してください',
         ];
         return view('hello.index', $data);
     }
 
-    public function other() {
-        return view('hello.other');
+    public function post(Request $request) {
+        $msg = $request->msg;
+        $data = [
+            'msg' => 'こんにちは'.$msg.'さん',
+        ];
+        return view('hello.index', $data);
     }
 }

@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 
 Route::get('hello', 'HelloController@index');
-Route::get('hello/other', 'HelloController@other');
+Route::post('hello', 'HelloController@post');
 
 
 Route::get('hello1/{id}/{msg?}', function ($id,$msg='default') {
