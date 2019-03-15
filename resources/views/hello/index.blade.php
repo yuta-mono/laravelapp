@@ -11,15 +11,11 @@
 </head>
 <body>
     <h1>Blade/Index</h1>
-    @isset( $msg )
-        <p>こんにちは、{{$msg}}さん。</p>
-    @else
-        <p>何か入力してください。</p>
-    @endisset
-    <form method="POST" action="/hello">
-        {{ csrf_field() }}
-        <input type="text" name="msg">
-        <input type="submit">
-    </form>
+    <p>&#064;foreachディレクティブ例</p>
+    <ol>
+        @foreach($datas as $item)
+            <li>{{$item}}
+        @endforeach
+    </ol>
 </body>
 </html>
