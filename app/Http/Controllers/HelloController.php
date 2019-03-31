@@ -23,12 +23,6 @@ function tag($tag, $txt) {
 class HelloController extends Controller
 {
     public function index() {
-        $data = [
-            ['name'=>'山田太郎', 'mail'=>'yamada@mail.com'],
-            ['name'=>'田中花子', 'mail'=>'tanaka@mail.com'],
-            ['name'=>'鈴木幸子', 'mail'=>'suzuki@mail.com']
-        ];
-
-        return view('hello.index', ['data'=>$data]);
+        return view('hello.index', ['message'=>'Hello!']);
     }
 }
