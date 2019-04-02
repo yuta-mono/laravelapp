@@ -22,7 +22,7 @@ function tag($tag, $txt) {
 
 class HelloController extends Controller
 {
-    public function index() {
-        return view('hello.index', ['message'=>'Hello!']);
+    public function index(Request $request) {
+        return view('hello.index', ['data'=>$request->data]);
     }
 }
