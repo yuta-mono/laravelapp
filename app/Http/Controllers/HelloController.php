@@ -25,7 +25,16 @@ function tag($tag, $txt) {
 class HelloController extends Controller
 {
     public function index(Request $request) {
-        return view('hello.index', ['msg'=>'フォームを入力: ']);
+        $validator = Validator::make($request->query(), [
+            'id' => 'required',
+            'pass' => 'required',
+        ]);
+        if( $validator->fails()) {
+            $msg = 'クエリに問題があります。';
+        } else {
+            $msg = 'OK';
+        }
+        return view('hello.index', ['msg'=>$msg, ]);
     }
 
     public function post(Request $request) {
